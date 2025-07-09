@@ -14,7 +14,7 @@ const Chat = () => {
   useEffect(() => {
     const fetchMessages = async () => {
       try {
-        const res = await axios.get(`http://localhost:5000/api/chat`, {
+        const res = await axios.get(`https://crowdspark-backend.onrender.com/api/chat`, {
           params: { campaignId },
         });
         setMessages(res.data);
@@ -36,7 +36,7 @@ const Chat = () => {
         recipientId: organizerId,
         content: newMessage,
       });
-      await axios.post(`http://localhost:5000/api/chat`, {
+      await axios.post(`https://crowdspark-backend.onrender.com/api/chat`, {
         campaignId,
         senderId: currentUserId,
         recipientId: organizerId,
@@ -45,7 +45,7 @@ const Chat = () => {
       setNewMessage("");
 
       // Refresh messages after sending
-      const res = await axios.get(`http://localhost:5000/api/chat`, {
+      const res = await axios.get(`https://crowdspark-backend.onrender.com/api/chat`, {
         params: { campaignId },
       });
       setMessages(res.data);
