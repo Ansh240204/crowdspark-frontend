@@ -101,11 +101,11 @@ const Notification = () => {
       }
 
       try {
-        const res = await axios.get(`http://localhost:5000/api/chat/notifications/${user.id}`);
+        const res = await axios.get(`https://crowdspark-backend.onrender.com/api/chat/notifications/${user.id}`);
         setNotifications(res.data.notifications);
 
         // Mark as read
-        await axios.put(`http://localhost:5000/api/chat/mark-read/${user.id}`);
+        await axios.put(`https://crowdspark-backend.onrender.com/api/chat/mark-read/${user.id}`);
       } catch (err) {
         console.error("Error fetching notifications:", err);
       } finally {
@@ -122,7 +122,7 @@ const Notification = () => {
       return;
     }
     try {
-      await axios.delete(`http://localhost:5000/api/chat/delete/${id}`);
+      await axios.delete(`https://crowdspark-backend.onrender.com/api/chat/delete/${id}`);
       setNotifications((prev) => prev.filter((n) => n._id !== id));
     } catch (err) {
       console.error("Error deleting notification:", err);
