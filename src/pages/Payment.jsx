@@ -123,7 +123,7 @@ const Payment = () => {
 
   const payNow = async () => {
     try {
-      const res = await fetch('http://localhost:5000/api/payment/create-order', {
+      const res = await fetch('https://crowdspark-backend.onrender.com/api/payment/create-order', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
@@ -148,7 +148,7 @@ const Payment = () => {
         order_id: order.id,
         handler: async function (response) {
           try {
-            const verifyRes = await fetch('http://localhost:5000/api/payment/verify', {
+            const verifyRes = await fetch('https://crowdspark-backend.onrender.com/api/payment/verify', {
               method: 'POST',
               headers: { 'Content-Type': 'application/json' },
               body: JSON.stringify({
