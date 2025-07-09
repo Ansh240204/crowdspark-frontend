@@ -26,7 +26,7 @@ const Dashboard = () => {
       }
 
       try {
-        const res = await axios.get("http://localhost:5000/api/campaigns/user", {
+        const res = await axios.get("https://crowdspark-backend.onrender.com/api/campaigns/user", {
           params: { userId: storedUser.id }
         });
         setCampaigns(res.data.campaigns);
@@ -45,13 +45,13 @@ const Dashboard = () => {
       if (!selectedCampaignId) return;
 
       try {
-        const statsRes = await axios.get(`http://localhost:5000/api/campaigns/${selectedCampaignId}/stats`);
+        const statsRes = await axios.get(`https://crowdspark-backend.onrender.com/api/campaigns/${selectedCampaignId}/stats`);
         setStats(statsRes.data);
 
-        const donationsRes = await axios.get(`http://localhost:5000/api/payments/recent/${selectedCampaignId}`);
+        const donationsRes = await axios.get(`https://crowdspark-backend.onrender.com/api/payments/recent/${selectedCampaignId}`);
         setRecentDonations(donationsRes.data.recentDonations || []);
 
-        const overTimeRes = await axios.get(`http://localhost:5000/api/campaigns/${selectedCampaignId}/donations-over-time`);
+        const overTimeRes = await axios.get(`https://crowdspark-backend.onrender.com/api/campaigns/${selectedCampaignId}/donations-over-time`);
         setDonationsOverTime(overTimeRes.data.donationsOverTime || []);
       } catch (err) {
         console.error("Error fetching stats, donations or chart data:", err);
