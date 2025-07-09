@@ -50,7 +50,7 @@ const Navbar = ({ user, handleLogout }) => {
     const fetchUnreadCount = async () => {
       if (user && user.id) {
         try {
-          const res = await axios.get(`http://localhost:5000/api/chat/unread/${user.id}`);
+          const res = await axios.get(`https://crowdspark-backend.onrender.com/api/chat/unread/${user.id}`);
           setUnreadCount(res.data.unreadCount);
         } catch (err) {
           console.error("Error fetching unread count:", err);
