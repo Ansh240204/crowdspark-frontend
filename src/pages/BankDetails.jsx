@@ -26,7 +26,7 @@ const BankDetails = () => {
 
       try {
 
-        const res = await axios.get('http://localhost:5000/api/bank/check', {
+        const res = await axios.get('https://crowdspark-backend.onrender.com/api/bank/check', {
 
           headers: { Authorization: `Bearer ${token}` },
         });
@@ -61,7 +61,7 @@ const BankDetails = () => {
     }
 
     try {
-      await axios.post('http://localhost:5000/api/bank/add', formData, {
+      await axios.post('https://crowdspark-backend.onrender.com/api/bank/add', formData, {
         headers: { Authorization: `Bearer ${token}` },
       });
       setError('');
