@@ -244,7 +244,7 @@ const StartCampaign = () => {
 
     try {
       const res = await axios.post(
-        'http://localhost:5000/api/campaigns/generate-story',
+        'https://crowdspark-backend.onrender.com/api/campaigns/generate-story',
         {
           title: formData.title,
           description: formData.description,
@@ -282,7 +282,7 @@ const StartCampaign = () => {
     data.append('media', formData.image);
 
     try {
-      await axios.post('http://localhost:5000/api/campaigns/create', data, {
+      await axios.post('https://crowdspark-backend.onrender.com/api/campaigns/create', data, {
         headers: {
           'Content-Type': 'multipart/form-data',
           Authorization: `Bearer ${token}`,
