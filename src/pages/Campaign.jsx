@@ -147,7 +147,7 @@ const Campaign = () => {
 
   const handleDonateNow = async (campaignId) => {
     try {
-      await axios.post(`http://localhost:5000/api/campaigns/${campaignId}/view`);
+      await axios.post(`https://crowdspark-backend.onrender.com/api/campaigns/${campaignId}/view`);
       console.log('View counted!');
     } catch (err) {
       console.error('Error counting view:', err);
@@ -157,7 +157,7 @@ const Campaign = () => {
   useEffect(() => {
     const fetchCampaigns = async () => {
       try {
-        const res = await axios.get("http://localhost:5000/api/campaigns", {
+        const res = await axios.get("https://crowdspark-backend.onrender.com/api/campaigns", {
           params: {
             search: search,
             sort: sort,
