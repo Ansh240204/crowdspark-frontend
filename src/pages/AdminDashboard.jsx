@@ -9,7 +9,7 @@ const AdminDashboard = () => {
   useEffect(() => {
     const fetchCampaigns = async () => {
       const token = localStorage.getItem("token");
-      const res = await axios.get("http://localhost:5000/api/campaigns", {
+      const res = await axios.get("https://crowdspark-backend.onrender.com/api/campaigns", {
         headers: { Authorization: `Bearer ${token}` },
       });
       setCampaigns(res.data.campaigns);
@@ -20,7 +20,7 @@ const AdminDashboard = () => {
   const deleteCampaign = async (id) => {
     const token = localStorage.getItem("token");
     try {
-      await axios.delete(`http://localhost:5000/api/campaigns/${id}`, {
+      await axios.delete(`https://crowdspark-backend.onrender.com/api/campaigns/${id}`, {
         headers: { Authorization: `Bearer ${token}` },
       });
       setCampaigns(campaigns.filter((c) => c._id !== id));
